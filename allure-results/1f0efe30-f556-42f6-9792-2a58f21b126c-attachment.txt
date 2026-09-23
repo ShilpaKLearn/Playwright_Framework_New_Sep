@@ -1,0 +1,6 @@
+Test Data Used In this Test ${user.username and ${user.password}
+****type performed with value admin@email.com****
+****type performed with value admin@123****
+****click performed ****
+****click performed ****
+****click performed ****
