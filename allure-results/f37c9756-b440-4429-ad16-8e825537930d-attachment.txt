@@ -1,0 +1,4 @@
+Registration fixture
+****type performed with value Rohith Sharma****
+****type performed with value rohith.s@gmail.com****
+****type performed with value TestPass@123$****

@@ -1,0 +1,9 @@
+{
+    "name": "Rohith Sharma",
+    "email": "sharma.r@gmail.com",
+    "password": "TestPass@123$",
+    "interest": "ws",
+    "gender": "Female",
+    "state": "Telangana",
+    "hobbies": "Reading"
+}

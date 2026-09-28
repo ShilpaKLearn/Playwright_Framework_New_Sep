@@ -1,5 +1,6 @@
 import{test,expect, selectors} from "@playwright/test"
 
+
 export class BasePage
 {
     constructor(page)
@@ -7,7 +8,7 @@ export class BasePage
         this.page = page;
     }
 
-    async getText()
+    async getText(selector)
     {
         return await selector.textContent()
     }
@@ -33,7 +34,11 @@ export class BasePage
         console.log(`****files uploaded: ${filepaths}****`);
     }
 
+    async handleDropdown(selector, value)
+        {
+            await selector.selectOption(value);
 
-
+            console.log(`**** Handle Dropdown with value ${value} ****`);
+        }
 
 }
