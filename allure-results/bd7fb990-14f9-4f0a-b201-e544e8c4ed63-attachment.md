@@ -1,0 +1,122 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: smoke\different_user_login.spec.js >> Data Driven Test for login scenario >> login to application 5
+- Location: tests\smoke\different_user_login.spec.js:10:9
+
+# Error details
+
+```
+ReferenceError: selector is not defined
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6] [cursor=pointer]:
+        - img "logo" [ref=e7]
+        - heading "Learn Automation Courses" [level=1] [ref=e8]
+      - generic [ref=e9]:
+        - img "menu" [ref=e10] [cursor=pointer]
+        - generic [ref=e11]:
+          - generic [ref=e12]:
+            - text: Learn Automation Courses
+            - img "delete" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Home" [ref=e15] [cursor=pointer]:
+              - /url: /
+            - link "Practise" [ref=e17] [cursor=pointer]:
+              - /url: /practise
+  - generic [ref=e20]:
+    - img "Login" [ref=e22]
+    - generic [ref=e23]:
+      - generic [ref=e25]:
+        - heading "Sign In" [level=2] [ref=e26]
+        - textbox "Enter Email" [ref=e27]: admintest@email.com1
+        - textbox "Enter Password" [ref=e28]: admin@123
+        - heading [level=2] [ref=e29]:
+          - img "error" [ref=e30]
+          - text: Invalid Email or Password
+        - button "Sign in" [ref=e31] [cursor=pointer]
+        - link "New user? Signup" [ref=e32] [cursor=pointer]:
+          - /url: /signup
+      - generic [ref=e33]:
+        - heading "Connect with us" [level=2] [ref=e34]
+        - generic [ref=e35] [cursor=pointer]:
+          - link [ref=e36]:
+            - /url: https://youtube.com/MukeshOtwani
+          - link [ref=e40]:
+            - /url: https://twitter.com/MukeshOtwani
+          - link [ref=e43]:
+            - /url: https://www.linkedin.com/in/mukesh-otwani-93631b99/
+          - link [ref=e46]:
+            - /url: https://www.facebook.com/groups/256655817858291
+          - link [ref=e49]:
+            - /url: https://learn-automation/reddit
+  - generic [ref=e64]:
+    - generic [ref=e65]:
+      - heading "Learn Automation By Mukesh Otwani" [level=3] [ref=e66]
+      - heading "©2023 All rights reserved" [level=2] [ref=e67]
+    - generic [ref=e68] [cursor=pointer]:
+      - link [ref=e69]:
+        - /url: https://youtube.com/MukeshOtwani
+      - link [ref=e73]:
+        - /url: https://twitter.com/MukeshOtwani
+      - link [ref=e76]:
+        - /url: https://www.linkedin.com/in/mukesh-otwani-93631b99/
+      - link [ref=e79]:
+        - /url: https://www.facebook.com/groups/256655817858291
+```
+
+# Test source
+
+```ts
+  1  | import{test,expect, selectors} from "@playwright/test"
+  2  | 
+  3  | export class BasePage
+  4  | {
+  5  |     constructor(page)
+  6  |     {
+  7  |         this.page = page;
+  8  |     }
+  9  | 
+  10 |     async getText()
+  11 |     {
+> 12 |         return await selector.textContent()
+     |         ^ ReferenceError: selector is not defined
+  13 |     }
+  14 |     async type(selector,text )
+  15 |     {
+  16 |         await selector.fill(text)
+  17 |         console.log(`****type performed with value ${text}****`);
+  18 |         
+  19 |     }
+  20 |     async click(selector)
+  21 |     {
+  22 |         await selector.click() 
+  23 |         console.log(`****click performed ****`);
+  24 |     }
+  25 |     async navigateToApplication(url)
+  26 |     {
+  27 |         await this.page.goto(url)
+  28 |         console.log(`****navigated to url: ${url}****`);
+  29 |     }
+  30 |     async uploadFiles(selector,filepaths)
+  31 |     {
+  32 |         await selector.setInputFiles(filepaths)
+  33 |         console.log(`****files uploaded: ${filepaths}****`);
+  34 |     }
+  35 | 
+  36 | 
+  37 | 
+  38 | 
+  39 | }
+```

@@ -27,7 +27,7 @@ export class LoginPage extends BasePage
    await this.click(this.loginbutton)
     //await this.loginbutton.click()
    }
-
+// one method one action 
    async clickOnNewUserSignUpLink()
     {
         await this.click(this.newUsreSignUpLink)
@@ -40,4 +40,4 @@ export class LoginPage extends BasePage
         //return await this.errorMessage.textContent();
     }
    
-}
+} 

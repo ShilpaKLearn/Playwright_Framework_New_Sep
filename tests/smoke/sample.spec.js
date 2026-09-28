@@ -10,6 +10,10 @@ test.describe("Sample Test",{tags:['sample']},()=>{
     {
 
     })
+    test("TC003",async({})=>
+    {
+
+    })
 })
 test.describe("Sample Test1",{tags:['sample']},()=>{
     //TC001 is a actual test name and Sample Test is group name
