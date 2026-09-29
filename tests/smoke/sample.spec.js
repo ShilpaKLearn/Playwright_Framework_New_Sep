@@ -25,4 +25,9 @@ test.describe("Sample Test1",{tags:['sample']},()=>{
     {
 
     })
+    test("TC004",async({})=>
+    {
+        Welcome
+    })
+      
 })
