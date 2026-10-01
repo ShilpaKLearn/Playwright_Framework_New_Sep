@@ -1,9 +1,10 @@
 {
     "name": "Rohith Sharma",
-    "email": "sharma.r@gmail.com",
+    "email": "sharma.r1@gmail.com",
     "password": "TestPass@123$",
-    "interest": "ws",
+    "interest": "JAVA",
     "gender": "Female",
     "state": "Telangana",
     "hobbies": "Reading"
+    
 }

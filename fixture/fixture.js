@@ -30,7 +30,13 @@ export const test = base.extend({
         const registrationpage = new RegistrationPage(page)
         await use(registrationpage)
 
-     }
+     },
+      randomEmail: async ({}, use) => {
+         const uniqueEmail = `Rohit_${Date.now()}@test.com`;
+         await use(uniqueEmail);
+    
+  },
+     
 });
 
 export {expect} from '@playwright/test'

@@ -1,0 +1,9 @@
+Registration fixture
+****type performed with value Rohith Sharma****
+****type performed with value Rohit_1790853844468@test.com****
+****type performed with value TestPass@123$****
+****click performed ****
+****click performed ****
+**** Handle Dropdown with value Telangana ****
+**** Handle Dropdown with value Reading ****
+****click performed ****

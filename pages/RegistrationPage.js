@@ -10,8 +10,8 @@ export class RegistrationPage extends BasePage
         this.usernameReg = page.getByPlaceholder("Name");
         this.useremailReg = page.getByPlaceholder("Email");
         this.userpasswordReg = page.getByPlaceholder("Password");
-        this.javaReg=page.getByLabel("ew",{exact:true});
-        this.seleliumReg=page.getByLabel("ws",{exact:true});
+        this.javaReg=page.getByLabel("JAVA",{exact:true});
+        this.seleliumReg=page.getByLabel("RAG",{exact:true});
         //this.interestReg = page.locator("//label[text()='"+interest+"']"); 
         this.genderMaleReg=page.locator("#gender1")
         this.genderFemaleReg=page.locator("#gender2")
@@ -26,6 +26,7 @@ export class RegistrationPage extends BasePage
      async signUp(){
         await this.click(this.signupReg)
     }
+    
 // one method one action
 async userRegistration(username,email,password)
    { 
@@ -44,11 +45,11 @@ async userRegistration(username,email,password)
 
    async interestField(interest){
 
-         if(interest==="ew")
+         if(interest==="JAVA")
         {
             await this.click(this.javaReg);
         }
-        else if(interest==="ws")
+        else if(interest==="RAG")
         {
             await this.click(this.seleliumReg);
         }

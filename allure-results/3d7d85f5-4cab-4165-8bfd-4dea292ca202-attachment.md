@@ -1,0 +1,110 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: smoke\login.spec.js >> Login Test >> login to application
+- Location: tests\smoke\login.spec.js:10:5
+
+# Error details
+
+```
+Error: expect(received).not.toContain(expected) // indexOf
+
+Expected substring: not "/login"
+Received string:        "https://freelance-learn-automation.vercel.app/login"
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6] [cursor=pointer]:
+        - img "logo" [ref=e7]
+        - heading "Learn Automation Courses" [level=1] [ref=e8]
+      - generic [ref=e9]:
+        - img "menu" [ref=e10] [cursor=pointer]
+        - generic [ref=e11]:
+          - generic [ref=e12]:
+            - text: Learn Automation Courses
+            - img "delete" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Home" [ref=e15] [cursor=pointer]:
+              - /url: /
+            - link "Practise" [ref=e17] [cursor=pointer]:
+              - /url: /practise
+  - generic [ref=e20]:
+    - img "Login" [ref=e22]
+    - generic [ref=e23]:
+      - generic [ref=e25]:
+        - heading "Sign In" [level=2] [ref=e26]
+        - textbox "Enter Email" [ref=e27]
+        - textbox "Enter Password" [ref=e28]
+        - button "Sign in" [ref=e29] [cursor=pointer]
+        - link "New user? Signup" [ref=e30] [cursor=pointer]:
+          - /url: /signup
+      - generic [ref=e31]:
+        - heading "Connect with us" [level=2] [ref=e32]
+        - generic [ref=e33] [cursor=pointer]:
+          - link [ref=e34]:
+            - /url: https://youtube.com/MukeshOtwani
+          - link [ref=e38]:
+            - /url: https://twitter.com/MukeshOtwani
+          - link [ref=e41]:
+            - /url: https://www.linkedin.com/in/mukesh-otwani-93631b99/
+          - link [ref=e44]:
+            - /url: https://www.facebook.com/groups/256655817858291
+          - link [ref=e47]:
+            - /url: https://learn-automation/reddit
+  - generic [ref=e62]:
+    - generic [ref=e63]:
+      - heading "Learn Automation By Mukesh Otwani" [level=3] [ref=e64]
+      - heading "©2023 All rights reserved" [level=2] [ref=e65]
+    - generic [ref=e66] [cursor=pointer]:
+      - link [ref=e67]:
+        - /url: https://youtube.com/MukeshOtwani
+      - link [ref=e71]:
+        - /url: https://twitter.com/MukeshOtwani
+      - link [ref=e74]:
+        - /url: https://www.linkedin.com/in/mukesh-otwani-93631b99/
+      - link [ref=e77]:
+        - /url: https://www.facebook.com/groups/256655817858291
+```
+
+# Test source
+
+```ts
+  1  | import {expect} from  '@playwright/test'
+  2  | import{test} from "../../fixture/fixture.js"
+  3  | //import { LoginPage } from '../../pages/LoginPage.js';
+  4  | //import { DashboardPage } from '../../pages/DashboardPage.js';
+  5  | import user from '../../testdata/user.json'
+  6  | 
+  7  | 
+  8  | test.describe("Login Test",{tags:['smoke','login']},()=>{
+  9  | 
+  10 | test('login to application', async({ page,loginpage,dashboardpage })=> 
+  11 | {
+  12 |     await page.goto('/login')
+  13 |     // we need to create object of loginpage. In LoginPage.js as we have passed page in constructor as a argument so while creating object we need to pass page
+  14 |     //const loginPage = new LoginPage(page)//In order to call we need create object later move this file for abstraction
+  15 |    // console.log('Test Data Used In this Test ${user.username and ${user.password}');
+  16 |     
+  17 |     //Call method we have created and we use await boz async method
+  18 |     await loginpage.loginToApplication(user.username,user.password)
+  19 | 
+  20 |     //const dashboardPage = new DashboardPage(page)
+  21 |     await dashboardpage.clickOnMenuIcon()
+  22 |     await dashboardpage.clickOnSignOutButton()
+> 23 |     expect(page.url()).not.toContain('/login');
+     |                            ^ Error: expect(received).not.toContain(expected) // indexOf
+  24 | 
+  25 | }
+  26 | )
+  27 | })
+```

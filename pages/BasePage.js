@@ -33,6 +33,7 @@ export class BasePage
         await selector.setInputFiles(filepaths)
         console.log(`****files uploaded: ${filepaths}****`);
     }
+    
 
     async handleDropdown(selector, value)
         {

@@ -7,7 +7,7 @@ import user from '../../testdata/user.json'
 
 test.describe("Login Test",{tags:['smoke','login']},()=>{
 
-test('login to application', async({ page,loginpage,dashboardpage })=>
+test('login to application', async({ page,loginpage,dashboardpage })=> 
 {
     await page.goto('/login')
     // we need to create object of loginpage. In LoginPage.js as we have passed page in constructor as a argument so while creating object we need to pass page

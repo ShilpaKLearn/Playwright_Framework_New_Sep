@@ -6,10 +6,10 @@ import userDetails  from "../../testdata/registrationdetails.json"
 
 test.describe('User Registration',{tags:['smoke','registration']},()=>{
 
-test('registration',async({page,registrationpage})=>{
-
+test('registration',async({page,registrationpage,randomEmail})=>{
+   
     await page.goto('/signup')
-    await registrationpage.userRegistration(userDetails.name,userDetails.email,userDetails.password) 
+    await registrationpage.userRegistration(userDetails.name,randomEmail,userDetails.password)     
     await registrationpage.interestField(userDetails.interest)
     await registrationpage.genderField(userDetails.gender)
     await registrationpage.stateField(userDetails.state)
